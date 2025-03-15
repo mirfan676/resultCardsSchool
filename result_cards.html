@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Report Card</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 1.2cm; /* Reduced margin slightly */
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        
+        .page {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+            width: 100%;
+            height: 100vh;
+            page-break-after: always;
+        }
+        
+        .card {
+            width: 48%; /* Ensures two cards fit side by side */
+            height: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            border: 2px solid black;
+            page-break-inside: avoid;
+            min-height: 100%;
+        }
+        
+        .header  {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .header-center{
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content:space-between;
+        }
+        .header-center h3{
+                margin: 0px;
+                padding: 0 10px;
+                font-size: 16px;
+        }
+        .header img { height: 60px; }
+        
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin:0px;
+        }
+        
+        .info {
+            text-align: left;
+            font-size: 16px;
+            margin: 5px 0;
+            display: flex;
+            gap: 20px; 
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        
+        .table th, .table td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+            font-size: 13px;
+        }
+        
+        .table th { background-color: #ddd; }
+        
+        .position-box {
+            font-size: 15px;
+            font-weight: bold;
+            padding: 5px;
+            margin-top: 10px;
+            border: 2px solid black;
+            text-align: center;
+            width: 40%;
+            margin-left: auto;
+        }
+        
+        .top-1 { background: linear-gradient(to right, #4CAF50, #FFFF00); }
+        .top-2 { background: linear-gradient(to right, #8BC34A, #FFFF80); }
+        .top-3 { background: linear-gradient(to right, #CDDC39, #FFFF99); }
+        
+        .remarks { 
+            margin-top: 10px; 
+            text-align: left; 
+            font-size: 14px;
+        }
+        
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .quote {
+                padding: 5px;
+                background-color: yellow;
+                font-weight: bold;
+                font-size: 11px;
+                border-radius: 5px;
+        }
+
+        
+        /* Fix print version */
+        @media print {
+            body { 
+                margin: 0; 
+                padding: 0; 
+                font-size:12px;
+            }
+        
+            .page { 
+                page-break-after: always; 
+                display: flex; 
+                flex-wrap: wrap; 
+                justify-content: space-between; 
+            }
+        
+            .card {
+                width: 45%;
+                margin-bottom: 15px; 
+                padding: 15px;
+                page-break-inside: avoid;
+                min-height: 380px; /* Prevents content from spilling */
+            }
+        
+            .quote {
+                position: absolute;
+                bottom: 10px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>FAWAD UL HASSAN</b></u></span><span>Father's Name: <u><b>MSHKOR</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>37401-1421073-1</b></u></span><span>  Class: <u><b>7th</b></u></span>  <span>Section: <u><b>B</b></u></span>  <span>Roll No: <u><b>6</b></u></span></div>
+        <div class="info"><span>Date of Birth: <u><b>15-05-2010 (15th May 2010)</b></u> </span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>40</td></tr><tr><td>Urdu</td><td>100</td><td>22</td></tr><tr><td>Mathematics</td><td>100</td><td>20</td></tr><tr><td>Science</td><td>100</td><td>18</td></tr><tr><td>His. Geo</td><td>100</td><td>20</td></tr><tr><td>Islamiat</td><td>100</td><td>50</td></tr><tr><td>Tarjama Tul Quran</td><td>50</td><td>50</td></tr><tr><td>Computer</td><td>100</td><td>45</td></tr><tr><td>Ethics</td><td>150</td><td>20</td></tr>
+        <tr><th>Total</th><th>750</th><th>285</th></tr>
+        <tr><th colspan="2">Percentage</th><td>38.00%</td></tr>
+        <tr><th colspan="2">Grade</th><td>F</td></tr>
+        </table>
+
+        <div class="position-box top-1">
+            Class Position: 1
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ____________________________________________________________<br>
+            ____________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: __________</p>
+            <p>Principal's Signature: ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>HASEEB ZAMAN</b></u></span><span>Father's Name: <u><b>TANVEER AHMED</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-9354432-5</b></u></span><span>  Class: <u><b>7th</b></u></span>  <span>Section: <u><b>B</b></u></span>  <span>Roll No: <u><b>16</b></u></span></div>
+        <div class="info"><span>Date of Birth: <u><b>02-08-2011 (2nd August 2011)</b></u> </span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>40</td></tr><tr><td>Urdu</td><td>100</td><td>22</td></tr><tr><td>Mathematics</td><td>100</td><td>20</td></tr><tr><td>Science</td><td>100</td><td>18</td></tr><tr><td>His. Geo</td><td>100</td><td>20</td></tr><tr><td>Islamiat</td><td>100</td><td>50</td></tr><tr><td>Tarjama Tul Quran</td><td>50</td><td>50</td></tr><tr><td>Computer</td><td>100</td><td>45</td></tr><tr><td>Ethics</td><td>150</td><td>20</td></tr>
+        <tr><th>Total</th><th>750</th><th>285</th></tr>
+        <tr><th colspan="2">Percentage</th><td>38.00%</td></tr>
+        <tr><th colspan="2">Grade</th><td>F</td></tr>
+        </table>
+
+        <div class="position-box top-1">
+            Class Position: 1
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ____________________________________________________________<br>
+            ____________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: __________</p>
+            <p>Principal's Signature: ______________</p>
+        </div>
+        
+    </div>
+    </div><div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>HASEEB ZAMAN</b></u></span><span>Father's Name: <u><b>TANVEER AHMED</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>37401-1421073-1</b></u></span><span>  Class: <u><b>7th</b></u></span>  <span>Section: <u><b>B</b></u></span>  <span>Roll No: <u><b>16</b></u></span></div>
+        <div class="info"><span>Date of Birth: <u><b>02-08-2011 (2nd August 2011)</b></u> </span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>40</td></tr><tr><td>Urdu</td><td>100</td><td>22</td></tr><tr><td>Mathematics</td><td>100</td><td>20</td></tr><tr><td>Science</td><td>100</td><td>18</td></tr><tr><td>His. Geo</td><td>100</td><td>20</td></tr><tr><td>Islamiat</td><td>100</td><td>50</td></tr><tr><td>Tarjama Tul Quran</td><td>50</td><td>50</td></tr><tr><td>Computer</td><td>100</td><td>45</td></tr><tr><td>Ethics</td><td>150</td><td>20</td></tr>
+        <tr><th>Total</th><th>750</th><th>285</th></tr>
+        <tr><th colspan="2">Percentage</th><td>38.00%</td></tr>
+        <tr><th colspan="2">Grade</th><td>F</td></tr>
+        </table>
+
+        <div class="position-box top-1">
+            Class Position: 1
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ____________________________________________________________<br>
+            ____________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: __________</p>
+            <p>Principal's Signature: ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>HASEEB ZAMAN</b></u></span><span>Father's Name: <u><b>TANVEER AHMED</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-9354432-5</b></u></span><span>  Class: <u><b>7th</b></u></span>  <span>Section: <u><b>B</b></u></span>  <span>Roll No: <u><b>16</b></u></span></div>
+        <div class="info"><span>Date of Birth: <u><b>02-08-2011 (2nd August 2011)</b></u> </span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>40</td></tr><tr><td>Urdu</td><td>100</td><td>22</td></tr><tr><td>Mathematics</td><td>100</td><td>20</td></tr><tr><td>Science</td><td>100</td><td>18</td></tr><tr><td>His. Geo</td><td>100</td><td>20</td></tr><tr><td>Islamiat</td><td>100</td><td>50</td></tr><tr><td>Tarjama Tul Quran</td><td>50</td><td>50</td></tr><tr><td>Computer</td><td>100</td><td>45</td></tr><tr><td>Ethics</td><td>150</td><td>20</td></tr>
+        <tr><th>Total</th><th>750</th><th>285</th></tr>
+        <tr><th colspan="2">Percentage</th><td>38.00%</td></tr>
+        <tr><th colspan="2">Grade</th><td>F</td></tr>
+        </table>
+
+        <div class="position-box top-1">
+            Class Position: 1
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ____________________________________________________________<br>
+            ____________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: __________</p>
+            <p>Principal's Signature: ______________</p>
+        </div>
+        
+    </div>
+    </div></body></html>
