@@ -5,7 +5,7 @@ import inflect  # For converting numbers to words
 p = inflect.engine()  # Initialize inflect engine
 
 # ✅ Load Excel file
-file_path = "students.xlsx"
+file_path = "8th-Award-List-2025.xlsx"
 df = pd.read_excel(file_path)
 
 # ✅ Function to format B-Form Number
@@ -72,8 +72,8 @@ def get_subjects_by_class(class_num, student):
         8: ["English", "Urdu", "Mathematics", "Science", "His. Geo", "Islamiat", "Tarjama Tul Quran", "Computer", "Ethics"],
         4: ["English", "Urdu", "Mathematics", "Science", "Social Studies", "Islamiat + Nazra / Ethics"],
         5: ["English", "Urdu", "Mathematics", "Science", "Social Studies", "Islamiat + Nazra / Ethics"],
-        3: ["English", "Urdu", "Mathematics", "General Knowledge", "Islamiat / Ethics"],
-        2: ["English", "Urdu", "Mathematics", "General Knowledge", "Islamiat / Ethics"],
+        3: ["English", "Urdu", "Mathematics", "General Knowledge", "Islamiat + Nazra / Ethics"],
+        2: ["English", "Urdu", "Mathematics", "General Knowledge", "Islamiat + Nazra / Ethics"],
         1: ["English", "Urdu", "Mathematics", "General Knowledge", "Islamiat / Ethics"],
         "Nursery": ["English", "Urdu", "Mathematics", "General Knowledge"]
     }
@@ -122,14 +122,34 @@ def assign_grade(percentage):
         return "C"
     elif percentage >= 50:
         return "D"
-    elif percentage >= 40:
+    elif percentage >= 33:
         return "E"
     else:
         return "F"
 
-# ✅ Calculate Class Position
-df["Percentage"] = df["Percentage"].str.replace("%", "").astype(float)
-df["Position"] = df["Percentage"].rank(method="min", ascending=False).astype(int)
+# ✅ Remove "%" and convert "Percentage" to float, replacing NaN with 0.0
+df["Percentage"] = df["Percentage"].str.replace("%", "", regex=True).astype(float).fillna(0.0)
+
+# ✅ Sort students by Percentage in descending order
+df = df.sort_values(by="Percentage", ascending=False).reset_index(drop=True)
+
+# ✅ Assign consecutive ranks (no gaps)
+df["Rank"] = df["Percentage"].rank(method="dense", ascending=False).fillna(0).astype(int)
+
+# ✅ Function to get ordinal suffix (e.g., 1st, 2nd, 3rd)
+def get_ordinal_suffix(n):
+    if 10 <= n % 100 <= 20:
+        return "th"
+    return {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+
+# ✅ Apply ordinal suffix to create Position column
+df["Position"] = df["Rank"].apply(lambda x: f"{x}{get_ordinal_suffix(x)}")
+
+# ✅ Drop temporary "Rank" column
+df = df.drop(columns=["Rank"])
+
+# ✅ Reset index to maintain order
+df = df.reset_index(drop=True)
 
 # ✅ HTML Template Start
 html_template = """
@@ -199,8 +219,8 @@ html_template = """
         
         .info {
             text-align: left;
-            font-size: 16px;
-            margin: 5px 0;
+            font-size: 14px;
+            margin: 2px 0;
             display: flex;
             gap: 20px; 
         }
@@ -264,7 +284,18 @@ html_template = """
                 padding: 0; 
                 font-size:12px;
             }
-        
+            .header-center h3{
+                margin: 0px;
+                padding: 0 10px;
+                font-size: 16px;
+            }
+            .info {
+                text-align: left;
+                font-size: 12px;
+                margin: 2px 0;
+                display: flex;
+                gap: 20px; 
+            }
             .page { 
                 page-break-after: always; 
                 display: flex; 
@@ -279,7 +310,11 @@ html_template = """
                 page-break-inside: avoid;
                 min-height: 380px; /* Prevents content from spilling */
             }
-        
+            .title {
+            font-size: 16px;
+                font-weight: bold;
+                margin:0px;
+            }
             .quote {
                 position: absolute;
                 bottom: 10px;
@@ -300,7 +335,7 @@ for index, student in df.iterrows():
     father_name = student["FATHER / GUARDIAN"]
     dob = clean_dob(student["DOB"])
     bform = format_bform_number(student["FORM-B"])
-    roll_number = student["ENRL #"]
+    roll_number = student["CLASS ROLL"]
     class_num = int(student["CLASS"].split('-')[0])  # Convert to integer
     subjects = get_subjects_by_class(class_num, student)
     total_obtained_marks = sum(student[subject] for subject in subjects if subject in student)
@@ -311,11 +346,11 @@ for index, student in df.iterrows():
 
     # ✅ Highlight top 3 positions
     position_class = ""
-    if position == 1:
+    if position == '1st':
         position_class = "top-1"
-    elif position == 2:
+    elif position == '2nd':
         position_class = "top-2"
-    elif position == 3:
+    elif position == '3rd':
         position_class = "top-3"
 
     # ✅ Set total full marks based on class level
@@ -342,9 +377,10 @@ for index, student in df.iterrows():
             </div>
             <img src="pec-logo.png" alt="PEC Logo" >
         </div>
-        <div class="info"><span>Student Name: <u><b>{name}</b></u></span><span>Father's Name: <u><b>{father_name}</b></u></span></div>
-        <div class="info"><span>B-Form: <u><b>{bform}</b></u></span><span>  Class: <u><b>{formatted_class}</b></u></span>  <span>Section: <u><b>{section}</b></u></span>  <span>Roll No: <u><b>{roll_number}</b></u></span></div>
-        <div class="info"><span>Date of Birth: <u><b>{dob}</b></u> </span></div>
+        <div class="info"><span>Student Name: <u><b>{name}</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b>{father_name}</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>{bform}</b></u></span><span>Date of Birth: <u><b>{dob}</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>{formatted_class}</b></u></span>  <span>Section: <u><b>{section}</b></u></span>  <span>Roll No: <u><b>{roll_number}</b></u></span></div>
 
         <table class="table">
             <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
@@ -365,13 +401,13 @@ for index, student in df.iterrows():
 
         <div class="remarks">
             Class Incharge Remarks:<br>
-            ____________________________________________________________<br>
-            ____________________________________________________________
+            ________________________________________________________<br>
+            ________________________________________________________
         </div>
 
         <div class="signature-section">
-            <p>Class Incharge Signature: __________</p>
-            <p>Principal's Signature: ______________</p>
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
         </div>
         
     </div>

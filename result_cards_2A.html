@@ -1,0 +1,1149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Report Card</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 1.2cm; /* Reduced margin slightly */
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        
+        .page {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+            width: 100%;
+            height: 100vh;
+            page-break-after: always;
+        }
+        
+        .card {
+            width: 48%; /* Ensures two cards fit side by side */
+            height: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            border: 2px solid black;
+            page-break-inside: avoid;
+            min-height: 100%;
+        }
+        
+        .header  {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .header-center{
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content:space-between;
+        }
+        .header-center h3{
+                margin: 0px;
+                padding: 0 10px;
+                font-size: 16px;
+        }
+        .header img { height: 60px; }
+        
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin:0px;
+        }
+        
+        .info {
+            text-align: left;
+            font-size: 14px;
+            margin: 2px 0;
+            display: flex;
+            gap: 20px; 
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        
+        .table th, .table td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+            font-size: 13px;
+        }
+        
+        .table th { background-color: #ddd; }
+        
+        .position-box {
+            font-size: 15px;
+            font-weight: bold;
+            padding: 5px;
+            margin-top: 10px;
+            border: 2px solid black;
+            text-align: center;
+            width: 40%;
+            margin-left: auto;
+        }
+        
+        .top-1 { background: linear-gradient(to right, #4CAF50, #FFFF00); }
+        .top-2 { background: linear-gradient(to right, #8BC34A, #FFFF80); }
+        .top-3 { background: linear-gradient(to right, #CDDC39, #FFFF99); }
+        
+        .remarks { 
+            margin-top: 10px; 
+            text-align: left; 
+            font-size: 14px;
+        }
+        
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .quote {
+                padding: 5px;
+                background-color: yellow;
+                font-weight: bold;
+                font-size: 11px;
+                border-radius: 5px;
+        }
+
+        
+        /* Fix print version */
+        @media print {
+            body { 
+                margin: 0; 
+                padding: 0; 
+                font-size:12px;
+            }
+            .header-center h3{
+                margin: 0px;
+                padding: 0 10px;
+                font-size: 16px;
+            }
+            .info {
+                text-align: left;
+                font-size: 12px;
+                margin: 2px 0;
+                display: flex;
+                gap: 20px; 
+            }
+            .page { 
+                page-break-after: always; 
+                display: flex; 
+                flex-wrap: wrap; 
+                justify-content: space-between; 
+            }
+        
+            .card {
+                width: 45%;
+                margin-bottom: 15px; 
+                padding: 15px;
+                page-break-inside: avoid;
+                min-height: 380px; /* Prevents content from spilling */
+            }
+            .title {
+            font-size: 16px;
+                font-weight: bold;
+                margin:0px;
+            }
+            .quote {
+                position: absolute;
+                bottom: 10px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>MUHAMMAD HARIS ZAHID</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> ZAHID PERVAIZ</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-0831508-9</b></u></span><span>Date of Birth: <u><b>26-05-2015 (26th May 2015)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>222</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>90</td></tr><tr><td>Urdu</td><td>100</td><td>85</td></tr><tr><td>Mathematics</td><td>100</td><td>90</td></tr><tr><td>General Knowledge</td><td>100</td><td>80</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>170</td></tr>
+        <tr><th>Total</th><th>550</th><th>515</th></tr>
+        <tr><th colspan="2">Percentage</th><td>93.60%</td></tr>
+        <tr><th colspan="2">Grade</th><td>A+</td></tr>
+        </table>
+
+        <div class="position-box top-1">
+            Class Position: 1st
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>ZAMIN ABBAS</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> SAJJAD HAIDER</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-9023547-1</b></u></span><span>Date of Birth: <u><b>19-03-2016 (19th March 2016)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>225</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>70</td></tr><tr><td>Urdu</td><td>100</td><td>80</td></tr><tr><td>Mathematics</td><td>100</td><td>90</td></tr><tr><td>General Knowledge</td><td>100</td><td>75</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>130</td></tr>
+        <tr><th>Total</th><th>550</th><th>445</th></tr>
+        <tr><th colspan="2">Percentage</th><td>80.90%</td></tr>
+        <tr><th colspan="2">Grade</th><td>A</td></tr>
+        </table>
+
+        <div class="position-box top-2">
+            Class Position: 2nd
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    </div><div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>SULTAN ZIARAT</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> ZISRAT</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-8713818-9</b></u></span><span>Date of Birth: <u><b>13-12-2015 (13th December 2015)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>216</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>98</td></tr><tr><td>Urdu</td><td>100</td><td>96</td></tr><tr><td>Mathematics</td><td>100</td><td>80</td></tr><tr><td>General Knowledge</td><td>100</td><td>98</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>72</td></tr>
+        <tr><th>Total</th><th>550</th><th>444</th></tr>
+        <tr><th colspan="2">Percentage</th><td>80.70%</td></tr>
+        <tr><th colspan="2">Grade</th><td>A</td></tr>
+        </table>
+
+        <div class="position-box top-3">
+            Class Position: 3rd
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>MUHAMMAD AFZAL</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> MUHAMMAD ALAM</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>56701-0352995-3</b></u></span><span>Date of Birth: <u><b>17-03-2013 (17th March 2013)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>221</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>45</td></tr><tr><td>Urdu</td><td>100</td><td>80</td></tr><tr><td>Mathematics</td><td>100</td><td>80</td></tr><tr><td>General Knowledge</td><td>100</td><td>60</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>120</td></tr>
+        <tr><th>Total</th><th>550</th><th>385</th></tr>
+        <tr><th colspan="2">Percentage</th><td>70.00%</td></tr>
+        <tr><th colspan="2">Grade</th><td>B</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 4th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    </div><div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>MIAN MUZAMIL IMTIAZ</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> MIAN MUHAMMAD IMTIAZ</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-5835854-7</b></u></span><span>Date of Birth: <u><b>24-09-2016 (24th September 2016)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>204</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>96</td></tr><tr><td>Urdu</td><td>100</td><td>60</td></tr><tr><td>Mathematics</td><td>100</td><td>10</td></tr><tr><td>General Knowledge</td><td>100</td><td>90</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>125</td></tr>
+        <tr><th>Total</th><th>550</th><th>381</th></tr>
+        <tr><th colspan="2">Percentage</th><td>69.30%</td></tr>
+        <tr><th colspan="2">Grade</th><td>C</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 5th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>MOOSA ABBAS</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> ABBAS MASIH</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-5020983-7</b></u></span><span>Date of Birth: <u><b>05-01-2013 (5th January 2013)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>215</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>50</td></tr><tr><td>Urdu</td><td>100</td><td>70</td></tr><tr><td>Mathematics</td><td>100</td><td>90</td></tr><tr><td>General Knowledge</td><td>100</td><td>50</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>116</td></tr>
+        <tr><th>Total</th><th>550</th><th>376</th></tr>
+        <tr><th colspan="2">Percentage</th><td>68.40%</td></tr>
+        <tr><th colspan="2">Grade</th><td>C</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 6th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    </div><div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>REHAN ROOKS</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> ROOKS MUBARAK</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-7542019-7</b></u></span><span>Date of Birth: <u><b>16-01-2015 (16th January 2015)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>202</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>35</td></tr><tr><td>Urdu</td><td>100</td><td>70</td></tr><tr><td>Mathematics</td><td>100</td><td>80</td></tr><tr><td>General Knowledge</td><td>100</td><td>36</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>150</td></tr>
+        <tr><th>Total</th><th>550</th><th>371</th></tr>
+        <tr><th colspan="2">Percentage</th><td>67.50%</td></tr>
+        <tr><th colspan="2">Grade</th><td>C</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 7th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>AHMAD TAHIR</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> TAHIR RASOOL</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-5631942-1</b></u></span><span>Date of Birth: <u><b>11-06-2011 (11th June 2011)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>214</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>70</td></tr><tr><td>Urdu</td><td>100</td><td>80</td></tr><tr><td>Mathematics</td><td>100</td><td>10</td></tr><tr><td>General Knowledge</td><td>100</td><td>80</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>120</td></tr>
+        <tr><th>Total</th><th>550</th><th>360</th></tr>
+        <tr><th colspan="2">Percentage</th><td>65.50%</td></tr>
+        <tr><th colspan="2">Grade</th><td>C</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 8th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    </div><div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>MUHAMMAD AYAN</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> MUHAMMAD AJMAL</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-2479851-7</b></u></span><span>Date of Birth: <u><b>12-02-2016 (12th February 2016)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>206</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>40</td></tr><tr><td>Urdu</td><td>100</td><td>70</td></tr><tr><td>Mathematics</td><td>100</td><td>60</td></tr><tr><td>General Knowledge</td><td>100</td><td>70</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>110</td></tr>
+        <tr><th>Total</th><th>550</th><th>350</th></tr>
+        <tr><th colspan="2">Percentage</th><td>63.60%</td></tr>
+        <tr><th colspan="2">Grade</th><td>C</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 9th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>MUHAMMAD AWAIS</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> BILAL HASSAN</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>34302-2518965-7</b></u></span><span>Date of Birth: <u><b>10-07-2014 (10th July 2014)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>223</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>50</td></tr><tr><td>Urdu</td><td>100</td><td>60</td></tr><tr><td>Mathematics</td><td>100</td><td>70</td></tr><tr><td>General Knowledge</td><td>100</td><td>60</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>110</td></tr>
+        <tr><th>Total</th><th>550</th><th>350</th></tr>
+        <tr><th colspan="2">Percentage</th><td>63.60%</td></tr>
+        <tr><th colspan="2">Grade</th><td>C</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 9th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    </div><div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>DAIM</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> SUNNY MASHEE</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-0327766-3</b></u></span><span>Date of Birth: <u><b>20-10-2016 (20th October 2016)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>205</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>36</td></tr><tr><td>Urdu</td><td>100</td><td>50</td></tr><tr><td>Mathematics</td><td>100</td><td>95</td></tr><tr><td>General Knowledge</td><td>100</td><td>33</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>130</td></tr>
+        <tr><th>Total</th><th>550</th><th>344</th></tr>
+        <tr><th colspan="2">Percentage</th><td>62.50%</td></tr>
+        <tr><th colspan="2">Grade</th><td>C</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 10th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>ISSAC AZAM</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> AZAM</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-7633248-5</b></u></span><span>Date of Birth: <u><b>10-06-2015 (10th June 2015)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>201</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>40</td></tr><tr><td>Urdu</td><td>100</td><td>80</td></tr><tr><td>Mathematics</td><td>100</td><td>80</td></tr><tr><td>General Knowledge</td><td>100</td><td>36</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>102</td></tr>
+        <tr><th>Total</th><th>550</th><th>338</th></tr>
+        <tr><th colspan="2">Percentage</th><td>61.50%</td></tr>
+        <tr><th colspan="2">Grade</th><td>C</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 11th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    </div><div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>MUHAMMAD HUSNAINKARAMAT</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> KARAMAT ALI</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-7508266-3</b></u></span><span>Date of Birth: <u><b>18-03-2014 (18th March 2014)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>224</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>55</td></tr><tr><td>Urdu</td><td>100</td><td>50</td></tr><tr><td>Mathematics</td><td>100</td><td>80</td></tr><tr><td>General Knowledge</td><td>100</td><td>35</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>103</td></tr>
+        <tr><th>Total</th><th>550</th><th>323</th></tr>
+        <tr><th colspan="2">Percentage</th><td>58.70%</td></tr>
+        <tr><th colspan="2">Grade</th><td>D</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 12th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>MUZAMMAL</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> SARWAR KHAN</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>32421-6651319-9</b></u></span><span>Date of Birth: <u><b>25-05-2014 (25th May 2014)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>208</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>36</td></tr><tr><td>Urdu</td><td>100</td><td>95</td></tr><tr><td>Mathematics</td><td>100</td><td>80</td></tr><tr><td>General Knowledge</td><td>100</td><td>37</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>73</td></tr>
+        <tr><th>Total</th><th>550</th><th>321</th></tr>
+        <tr><th colspan="2">Percentage</th><td>58.40%</td></tr>
+        <tr><th colspan="2">Grade</th><td>D</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 13th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    </div><div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>BILAL ISMAIL</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> ISMAIL KHAN</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-7388856-9</b></u></span><span>Date of Birth: <u><b>09-09-2012 (9th September 2012)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>207</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>45</td></tr><tr><td>Urdu</td><td>100</td><td>80</td></tr><tr><td>Mathematics</td><td>100</td><td>70</td></tr><tr><td>General Knowledge</td><td>100</td><td>36</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>83</td></tr>
+        <tr><th>Total</th><th>550</th><th>314</th></tr>
+        <tr><th colspan="2">Percentage</th><td>57.10%</td></tr>
+        <tr><th colspan="2">Grade</th><td>D</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 14th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>MUHAMMAD YOUSAF</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> ASHFAQ ALI</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-0622629-9</b></u></span><span>Date of Birth: <u><b>23-05-2015 (23rd May 2015)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>217</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>33</td></tr><tr><td>Urdu</td><td>100</td><td>40</td></tr><tr><td>Mathematics</td><td>100</td><td>98</td></tr><tr><td>General Knowledge</td><td>100</td><td>40</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>80</td></tr>
+        <tr><th>Total</th><th>550</th><th>291</th></tr>
+        <tr><th colspan="2">Percentage</th><td>52.90%</td></tr>
+        <tr><th colspan="2">Grade</th><td>D</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 15th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    </div><div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>MUHAMMAD ABDULLAH</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> MUHAMMAD AMEEN</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35501-0918080-3</b></u></span><span>Date of Birth: <u><b>15-03-2014 (15th March 2014)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>209</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>33</td></tr><tr><td>Urdu</td><td>100</td><td>40</td></tr><tr><td>Mathematics</td><td>100</td><td>90</td></tr><tr><td>General Knowledge</td><td>100</td><td>33</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>86</td></tr>
+        <tr><th>Total</th><th>550</th><th>282</th></tr>
+        <tr><th colspan="2">Percentage</th><td>51.30%</td></tr>
+        <tr><th colspan="2">Grade</th><td>D</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 16th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>NOOR ALI</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> MUHAMMAD ASGHAR</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-8138301-3</b></u></span><span>Date of Birth: <u><b>04-04-2012 (4th April 2012)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>220</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>40</td></tr><tr><td>Urdu</td><td>100</td><td>45</td></tr><tr><td>Mathematics</td><td>100</td><td>80</td></tr><tr><td>General Knowledge</td><td>100</td><td>38</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>56</td></tr>
+        <tr><th>Total</th><th>550</th><th>259</th></tr>
+        <tr><th colspan="2">Percentage</th><td>47.10%</td></tr>
+        <tr><th colspan="2">Grade</th><td>E</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 17th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    </div><div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>ARSLAN ALI</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> M KHALIL AHMAD</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-1393055-1</b></u></span><span>Date of Birth: <u><b>09-11-2013 (9th November 2013)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>219</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>33</td></tr><tr><td>Urdu</td><td>100</td><td>50</td></tr><tr><td>Mathematics</td><td>100</td><td>60</td></tr><tr><td>General Knowledge</td><td>100</td><td>36</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>70</td></tr>
+        <tr><th>Total</th><th>550</th><th>249</th></tr>
+        <tr><th colspan="2">Percentage</th><td>45.30%</td></tr>
+        <tr><th colspan="2">Grade</th><td>E</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 18th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>SHAHID</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> ARIF MASIH</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-1064717-7</b></u></span><span>Date of Birth: <u><b>01-10-2014 (1st October 2014)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>211</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>34</td></tr><tr><td>Urdu</td><td>100</td><td>45</td></tr><tr><td>Mathematics</td><td>100</td><td>36</td></tr><tr><td>General Knowledge</td><td>100</td><td>36</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>85</td></tr>
+        <tr><th>Total</th><th>550</th><th>236</th></tr>
+        <tr><th colspan="2">Percentage</th><td>42.90%</td></tr>
+        <tr><th colspan="2">Grade</th><td>E</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 19th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    </div><div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>MUHAMMAD IMRANKARAMAT</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> KARAMATT ALI</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-6496553-3</b></u></span><span>Date of Birth: <u><b>03-07-2012 (3rd July 2012)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>210</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>34</td></tr><tr><td>Urdu</td><td>100</td><td>36</td></tr><tr><td>Mathematics</td><td>100</td><td>50</td></tr><tr><td>General Knowledge</td><td>100</td><td>37</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>63</td></tr>
+        <tr><th>Total</th><th>550</th><th>220</th></tr>
+        <tr><th colspan="2">Percentage</th><td>40.00%</td></tr>
+        <tr><th colspan="2">Grade</th><td>E</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 20th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>SHAHID ALI</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> SHOKAT ALI</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-9540228-1</b></u></span><span>Date of Birth: <u><b>08-01-2012 (8th January 2012)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>203</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>25</td></tr><tr><td>Urdu</td><td>100</td><td>15</td></tr><tr><td>Mathematics</td><td>100</td><td>45</td></tr><tr><td>General Knowledge</td><td>100</td><td>30</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>45</td></tr>
+        <tr><th>Total</th><th>550</th><th>160</th></tr>
+        <tr><th colspan="2">Percentage</th><td>29.10%</td></tr>
+        <tr><th colspan="2">Grade</th><td>F</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 21st
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    </div><div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>REHMAT ALI</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> PERVAIZ AHMAD</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35101-5971454-3</b></u></span><span>Date of Birth: <u><b>25-09-2011 (25th September 2011)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>212</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>10</td></tr><tr><td>Urdu</td><td>100</td><td>15</td></tr><tr><td>Mathematics</td><td>100</td><td>40</td></tr><tr><td>General Knowledge</td><td>100</td><td>10</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>40</td></tr>
+        <tr><th>Total</th><th>550</th><th>115</th></tr>
+        <tr><th colspan="2">Percentage</th><td>20.90%</td></tr>
+        <tr><th colspan="2">Grade</th><td>F</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 22nd
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>MUHAMMAD UMAIR</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> MUHAMMAD JAMSHAID</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-4155701-3</b></u></span><span>Date of Birth: <u><b>21-02-2017 (21st February 2017)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>213</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>15</td></tr><tr><td>Urdu</td><td>100</td><td>20</td></tr><tr><td>Mathematics</td><td>100</td><td>5</td></tr><tr><td>General Knowledge</td><td>100</td><td>30</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>35</td></tr>
+        <tr><th>Total</th><th>550</th><th>105</th></tr>
+        <tr><th colspan="2">Percentage</th><td>19.10%</td></tr>
+        <tr><th colspan="2">Grade</th><td>F</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 23rd
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    </div><div class="page">
+    <div class="card">
+        <div class="header">
+            <img src="gop-logo.svg" alt="Govt Logo">
+            <div class="header-center">
+                <h2 class="title">Report Card - Academic Year 2024-25</h2>
+                <h3>Govt. High School Walton Airport Gopal Nagar Lahore</h3>
+            </div>
+            <img src="pec-logo.png" alt="PEC Logo" >
+        </div>
+        <div class="info"><span>Student Name: <u><b>SIMON ASIF</b></u></span></div>
+        <div class="info"><span>Father's Name: <u><b> ASIF MASIH</b></u></span></div>
+        <div class="info"><span>B-Form: <u><b>35202-0732876-9</b></u></span><span>Date of Birth: <u><b>03-11-2012 (3rd November 2012)</b></u> </span></div>
+        <div class="info" <span>Class: <u><b>2nd</b></u></span>  <span>Section: <u><b>A</b></u></span>  <span>Roll No: <u><b>218</b></u></span></div>
+
+        <table class="table">
+            <tr><th>Subject</th><th>Total Marks</th><th>Obtained Marks</th></tr>
+    <tr><td>English</td><td>100</td><td>0</td></tr><tr><td>Urdu</td><td>100</td><td>0</td></tr><tr><td>Mathematics</td><td>100</td><td>0</td></tr><tr><td>General Knowledge</td><td>100</td><td>0</td></tr><tr><td>Islamiat + Nazra / Ethics</td><td>150</td><td>0</td></tr>
+        <tr><th>Total</th><th>550</th><th>0</th></tr>
+        <tr><th colspan="2">Percentage</th><td>0.00%</td></tr>
+        <tr><th colspan="2">Grade</th><td>F</td></tr>
+        </table>
+
+        <div class="position-box ">
+            Class Position: 24th
+        </div>
+
+        <div class="remarks">
+            Class Incharge Remarks:<br>
+            ________________________________________________________<br>
+            ________________________________________________________
+        </div>
+
+        <div class="signature-section">
+            <p>Class Incharge Signature: <br><br>__________</p>
+            <p>Principal's Signature:<br><br> ______________</p>
+        </div>
+        
+    </div>
+    </div></body></html>
